@@ -6,7 +6,7 @@ export const fetchWeather = (city) => {
     .then((response) => {
       return Object.assign({}, {
         city: city,
-        forecast: response.list.slice(0, 10)
+        forecast: response.list
       })
     });
 };
