@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { fetchWeather } from './weather.actions';
+import './weather.scss';
 
 export default class Weather extends React.Component {
   constructor() {
