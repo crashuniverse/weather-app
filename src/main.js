@@ -1,11 +1,17 @@
 import React from 'react';
 import { render } from 'react-dom';
+import Weather from './components/weather/weather'
 
-class Weather extends React.Component {
+class Container extends React.Component {
   render() {
-    return <div>Hello World</div>;
+    return (
+      <div className="container">
+        <header>Weather App</header>
+        <Weather />
+      </div>
+    );
   }
 }
 
 const mountNode = document.getElementById('root');
-render(<Weather/>, mountNode);
+render(<Container/>, mountNode);
