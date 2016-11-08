@@ -4,8 +4,9 @@
   "description": "weather app using openweathermap apis",
   "main": "index.js",
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server --content-base src/ --port 9000",
-    "test": "node_modules/.bin/mocha --opts mocha.opts"
+    "start": "webpack-dev-server --content-base src/ --port 9000",
+    "test": "mocha --opts mocha.opts",
+    "coverage": "nyc npm test && nyc report --reporter=lcov"
   },
   "keywords": [
     "weather",
@@ -24,6 +25,7 @@
     "mocha": "^3.1.2",
     "node-fetch": "^1.6.3",
     "node-sass": "^3.11.2",
+    "nyc": "^8.4.0",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
