@@ -9,6 +9,6 @@ export const get = (url) => {
       return body;
     })
     .catch((error) => {
-      return 'Network error. ', error.message;
+      return 'Network error. ' + error.message;
     })
 };
