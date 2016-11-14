@@ -12,6 +12,8 @@ describe('Api utility', () => {
   });
 
   it('should return a promise when get method is called', () => {
+    fetchMock.restore();
+    fetchMock.mock('http://example.com', {});
     const response = Api.get('http://example.com');
 
     assert(response);
