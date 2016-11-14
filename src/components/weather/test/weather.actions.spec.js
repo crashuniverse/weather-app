@@ -1,4 +1,4 @@
-const assert = require('assert');
+import { expect } from 'chai';
 import fetchMock from 'fetch-mock';
 import { fetchWeather } from '../weather.actions';
 
@@ -11,10 +11,10 @@ describe('Weather action', () => {
     fetchMock.mock('*', data);
     fetchWeather('paris')
       .then((body) => {
-        assert(body);
-        assert(body.city);
-        assert(body.forecast);
-        assert.deepEqual(body.forecast, []);
+        expect(body).to.exist;
+        expect(body.city).to.exist;
+        expect(body.forecast).to.exist;
+        expect(body.forecast).to.deep.equal([]);
 
         fetchMock.reset();
       })

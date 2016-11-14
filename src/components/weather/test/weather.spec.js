@@ -1,4 +1,4 @@
-const assert = require('assert');
+import { expect } from 'chai';
 import TestUtils from 'react-addons-test-utils';
 import ReactDom from 'react-dom';
 import React from 'react';
@@ -14,6 +14,6 @@ describe('Weather component', () => {
   });
 
   it('should mount', () => {
-    assert(component);
+    expect(component).to.exist;
   });
 });

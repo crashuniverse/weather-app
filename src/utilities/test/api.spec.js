@@ -1,14 +1,14 @@
-const assert = require('assert');
+import { expect } from 'chai';
 import fetchMock from 'fetch-mock';
 import * as Api from '../api.js';
 
 describe('Api utility', () => {
   it('should have a defined fetch method at global level', () => {
-    assert(fetch);
+    expect(fetch).to.exist;
   });
 
   it('should have a defined get method', () => {
-    assert(Api.get);
+    expect(Api.get).to.exist;
   });
 
   it('should return a promise when get method is called', () => {
@@ -16,9 +16,8 @@ describe('Api utility', () => {
     fetchMock.mock('http://example.com', {});
     const response = Api.get('http://example.com');
 
-    assert(response);
-    assert.equal(typeof response, 'object');
-    assert(response.then);
+    expect(response).to.exist;
+    expect(response).to.be.a('promise');
   });
 
   it('should return an object when promise resolves', (done) => {
@@ -27,9 +26,9 @@ describe('Api utility', () => {
     fetchMock.mock('http://example.com', data);
     Api.get('http://example.com')
       .then((body) => {
-        assert(body);
-        assert.equal(typeof body, 'object');
-        assert.deepEqual(body, data);
+        expect(body).to.exist;
+        expect(body).to.be.an('object');
+        expect(body).to.deep.equal(data);
 
         fetchMock.restore();
       })
@@ -47,9 +46,9 @@ describe('Api utility', () => {
     });
     Api.get('http://example.com')
       .then((error) => {
-        assert(error);
-        assert.equal(typeof error, 'string');
-        assert.equal(error, 'Network error. cannot reach example.com');
+        expect(error).to.exist;
+        expect(error).to.be.a('string');
+        expect(error).to.equal('Network error. cannot reach example.com');
 
         fetchMock.restore();
       })

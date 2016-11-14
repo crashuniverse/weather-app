@@ -1,7 +1,7 @@
-const assert = require('assert');
+import { expect } from 'chai';
 
 describe('Canary test', () => {
   it('should always be true', () => {
-    assert.equal(2+2, 4);
+    expect(2+2).to.equal(4);
   });
 });
