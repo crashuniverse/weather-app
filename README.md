@@ -13,5 +13,5 @@
 `npm test`
 
 ## To run test coverage
-`npm run coverage`
+`npm run coverage`  
 Coverage reports are kept in `/coverage` folder.
